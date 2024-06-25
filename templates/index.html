@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Calculadora de Subredes</title>
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">Inicio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Calculadora del Grupo Chelero</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <form id="subnetForm" action="/calcular" method="POST">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Dirección IP</span>
+                            <input type="text" id="ip" name="ip" class="form-control" placeholder="0.0.0.0"
+                                aria-label="0.0.0.0" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Máscara</span>
+                            <input type="text" id="mask" name="mascara" class="form-control" placeholder="00"
+                                aria-label="00" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Cantidad de subredes</span>
+                            <input type="text" id="subnetCount" name="num_subredes" class="form-control"
+                                placeholder="00" aria-label="00" aria-describedby="basic-addon1">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-xl cursor-pointer" style="margin-top: 10px;">
+                            Calcular subredes
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Bootstrap core JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Core theme JS -->
+    <script>
+        document.getElementById('subnetForm').addEventListener('submit', function (event) {
+            var ip = document.getElementById('ip').value;
+            var mask = document.getElementById('mask').value;
+            var subnetCount = document.getElementById('subnetCount').value;
+
+            if (!ip || !mask || !subnetCount) {
+                alert('Todos los campos son obligatorios.');
+                event.preventDefault(); // Previene el envío del formulario
+            }
+        });
+    </script>
+</body>
+
+</html>

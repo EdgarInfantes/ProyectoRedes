@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Resultado de Subredes</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+        integrity="B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <link href="../static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/">Inicio</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Resultados -->
+    <section class="bg-primary text-white mb-0" id="subredes-section">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-12">
+                    <h1 class="text-white font-weight-bold mt-5 mb-4">Resultado de Subredes</h1>
+                    <hr class="divider" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de Entrada -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <div class="table-responsive">
+                        <h3 class="text-white font-weight-bold mt-5 mb-4">Entradas:</h3>
+                        <table class="table table-striped text-white">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Red</th>
+                                    <th scope="col">Máscara</th>
+                                    <th scope="col">Min Subredes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ red[0] }}</td>
+                                    <td>{{ red[1] }}</td>
+                                    <td>{{ red[2] }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr class="divider" />
+
+        <!-- Switch-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-12">
+                    <div class="form-check form-switch float-end">
+                        <div class="form-check form-switch float-end">
+                            <label class="form-check-label">Binario</label>
+                        </div>
+                        <div class="form-check form-switch float-end">
+                            <label class="form-check-label">  </label>
+                            <input class="form-check-input" type="checkbox" id="formatSwitch">
+                        </div>
+                        <div class="form-check form-switch float-end">
+                            <label class="form-check-label">Decimal</label>
+                            <label class="form-check-label" id="transparentLabel" style="color: transparent;">Ho</label>                            
+                        </div>
+
+                        <div class="form-check form-switch float-end">
+                            <label class="form-check-label">Salida en:</label>
+                            <label class="form-check-label" id="transparentLabel" style="color: transparent;">Ho</label>                            
+                        </div>
+                        <div class="form-check form-switch float-end">
+                            <label class="form-check-label">Tabla de Resultados:</label>
+                            <label class="form-check-label" id="transparentLabel" style="color: transparent;">Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</label>                            
+                        </div>
+                        <!-- <label class="form-check-label">Decimal</label>
+                        <input class="form-check-input" type="checkbox" id="formatSwitch">
+                        <label class="form-check-label">Binario</label> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- Tabla de Resultados -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <div class="table-responsive">
+                        <table class="table table-striped text-white" id="subredesTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Subred</th>
+                                    <th scope="col">Máscara</th>
+                                    <th scope="col">Dirección de Red</th>
+                                    <th scope="col">Primera Dirección de Host</th>
+                                    <th scope="col">Última Dirección de Host</th>
+                                    <th scope="col">Broadcast</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for subred in subredes %}
+                                <tr>
+                                    <td>{{ subred['Numero'] }}</td>
+                                    <td>{{ subred['Máscara'] }}</td>
+                                    <td>{{ subred['Dirección de Red'] }}</td>
+                                    <td>{{ subred['Primera Dirección de Host'] }}</td>
+                                    <td>{{ subred['Última Dirección de Host'] }}</td>
+                                    <td>{{ subred['Broadcast'] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('formatSwitch').addEventListener('change', function () {
+            var decimal = !this.checked;
+            var ip = "{{ red[0] }}";
+            var mascara = "{{ red[1] }}";
+            var num_subredes = "{{ red[2] }}";
+
+            fetch('/update_format', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ip: ip, mascara: mascara, num_subredes: num_subredes, decimal: decimal }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var tableBody = document.querySelector('#subredesTable tbody');
+                    tableBody.innerHTML = '';
+                    data.subredes.forEach(subred => {
+                        var row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${subred.Numero}</td>
+                            <td>${subred.Máscara}</td>
+                            <td>${subred['Dirección de Red']}</td>
+                            <td>${subred['Primera Dirección de Host']}</td>
+                            <td>${subred['Última Dirección de Host']}</td>
+                            <td>${subred.Broadcast}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+            // // Cambiar el texto del label
+            // var formatLabel = document.getElementById('formatLabel');
+            // if (decimal) {
+            //     formatLabel.textContent = 'Formato Decimal';
+            // } else {
+            //     formatLabel.textContent = 'Formato Binario';
+            // }
+        });
+    </script>
+</body>
+
+</html>
