@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import ipaddress
+import math
 
 app = Flask(__name__)
 
@@ -7,7 +8,10 @@ def calcular_subredes(ip_str, mascara_str, num_subredes, decimal):
     try:
         ip = ipaddress.IPv4Network(ip_str + '/' + mascara_str, strict=False)
 
-        nuevo_prefijo = ip.prefixlen + num_subredes.bit_length()
+        # Calcular la mínima potencia de dos mayor o igual al número de subredes
+        potencia_subredes = 2 ** math.ceil(math.log2(num_subredes))
+
+        nuevo_prefijo = ip.prefixlen + math.ceil(math.log2(potencia_subredes))
 
         if nuevo_prefijo <= 32:
             subredes = list(ip.subnets(new_prefix=nuevo_prefijo))
@@ -42,13 +46,21 @@ def calcular_subredes(ip_str, mascara_str, num_subredes, decimal):
             return None
     except ValueError:
         return None
-    
+
 def ip_to_binary(ip):
     return '.'.join(format(int(octet), '08b') for octet in str(ip).split('.'))
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/calcular', methods=['POST'])
 def calcular():

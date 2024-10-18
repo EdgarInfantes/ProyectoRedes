@@ -10,6 +10,18 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
+.top-section {
+            height: 10vh; /* 20% de la altura de la ventana */
+            background-color: rgba(92, 77, 66, 0.8); /* Cambia este código por el color que desees */
+        }
+
+.content-section {
+    height: 80vh; /* 80% de la altura de la ventana */
+            background-color: #f4f4f4; /* Color de fondo para el contenido */
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
