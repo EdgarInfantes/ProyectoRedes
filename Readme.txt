@@ -9,3 +9,5 @@ Para poner en marcha este proyecto, sigue los siguientes pasos:
 
 3. Una vez que el servidor esté en ejecución, podrás interactuar con el proyecto a través de tu navegador en la dirección que se especifique en la terminal (por ejemplo, http://localhost:5000).
 
+Bye xd
+
